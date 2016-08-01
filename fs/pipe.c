@@ -136,8 +136,6 @@ pipe_iov_copy_from_user(void *addr, int *offset, struct iovec *iov,
 					   iov->iov_base, copy))
 				return -EFAULT;
 		}
-		to += copy;
-		len -= copy;
 		*offset += copy;
 		*remaining -= copy;
 		iov->iov_base += copy;
@@ -166,8 +164,6 @@ pipe_iov_copy_to_user(struct iovec *iov, void *addr, int *offset,
 					 addr + *offset, copy))
 				return -EFAULT;
 		}
-		from += copy;
-		len -= copy;
 		*offset += copy;
 		*remaining -= copy;
 		iov->iov_base += copy;
